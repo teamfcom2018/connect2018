@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/teamfcom2018/connect2018#readme",
   "dependencies": {
-    "leaflet": "^1.3.4"
+    "leaflet": "^1.3.4",
+    "leaflet.markercluster": "^1.4.1"
   },
   "devDependencies": {
     "http-server": "^0.11.1"
