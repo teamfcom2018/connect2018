@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja" style="height: 100%; margin: 0;">
+
+<head>
+    <title>病院情報</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="index.css" type="text/css" />
+    <link rel="stylesheet" href="./node_modules/leaflet/dist/leaflet.css" />
+    <script src="./node_modules/leaflet/dist/leaflet.js"></script>
+    <script src="./node_modules/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+</head>
+
+<body>
+    <div id="outer">
+        <div id="header">
+            <h1>病院情報</h1>
+        </div>
+        <div id="main">
+            <div class="content">
+                <h2>病&nbsp;院&nbsp;名 　 : 郡山病院</h2>
+                <h2>住　　所 　: 〒963-4312 福島県郡山市堤下町</h2>
+                <h2>電話番号 　: 024-931-7470</h2>
+                <h2>営業時間 　: 9:00～16:30(緊急時夜間受入可)</h2>
+                <h2>受け入れ 　: ◯(可能)</h2>
+                <h2>
+                    <div id="map" style="width: 600px; height:400px;"></div>
+                </h2><br>
+            </div>
+        </div>
+        <div id="footer">
+            <div class="copy">© 2018 Team F-COM</div>
+        </div>
+    </div>
+</body>
+<script src="src/map.js"></script>
+<script src="src/current_pos.js"></script>
+
+</html>
