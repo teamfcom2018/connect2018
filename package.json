@@ -1,0 +1,26 @@
+{
+  "name": "connect2018",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server -o"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teamfcom2018/connect2018.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/teamfcom2018/connect2018/issues"
+  },
+  "homepage": "https://github.com/teamfcom2018/connect2018#readme",
+  "dependencies": {
+    "leaflet": "^1.3.4"
+  },
+  "devDependencies": {
+    "http-server": "^0.11.1"
+  }
+}
