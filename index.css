@@ -13,7 +13,7 @@ padding:0;
 color:#222;
 }
 #header {
-height:90px;
+height:85px;
 background-color:#004C25;
 color:#ffffff
 }
@@ -23,7 +23,7 @@ float:left;
 }
 .content {
 padding:0 30px 10px 30px;
-font-size:13px;
+font-size:10px;
 line-height:150%;
 }
 #right {
@@ -95,7 +95,7 @@ h1 {
 font-size:35px;
 text-align:left;
 color: #FFFFFF;
-padding:44px 0 0 34px;
+padding:40px 0 0 34px;
 margin:0;
 font-family: メイリオ, Meiryo,'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro', 'ＭＳ Ｐゴシック', sans-serif;
 }
