@@ -18,10 +18,19 @@ window.onload = function () {
     L.geoJson(
         geojsonFeature,
         {
+            pointToLayer: function(feature, latlng) {
+                var smallIcon = new L.ExtraMarkers.icon({
+                    prefix: 'fa'
+                    ,icon: 'fa-hospital'
+                    ,shape: 'circle'
+                    ,markerColor: 'blue'
+                });
+                return L.marker(latlng, {icon: smallIcon});
+            },
             onEachFeature: function (feature, layer) {
                 if (feature.properties && feature.properties.popupContent)
                 {
-                    layer.bindPopup("<a href='"+feature.properties.popupLink+"'>"+feature.properties.popupContent+"</a>");
+                    layer.bindPopup("<a href='"+feature.properties.detail+"'>"+feature.properties.popupContent+"</a>");
                 }
             }
         }

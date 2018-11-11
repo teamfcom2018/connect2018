@@ -6,12 +6,12 @@ function init() {
     }
 }
 
-function pop(i) {
+function getItem(i) {
     var str_json = localStorage.getItem(i);
     var json = JSON.parse(str_json);
 
-    console.log(str_json);
-    console.log(json.properties.popupContent);
+    // console.log(str_json);
+    // console.log(json.properties.popupContent);
 
     return json;
 }
