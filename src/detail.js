@@ -37,7 +37,7 @@ window.onload = function() {
     document.getElementById('day').innerHTML = day;
     document.getElementById('time').innerHTML = time;
     document.getElementById('status').innerHTML = status;
-    document.getElementById('url').innerHTML = url;
+    document.getElementById('url').innerHTML = "<a href='"+ url +"' target='_blank'>"+url+"</a>";
 
     // マップ表示＆経路表示
     disp_detailMap(lat, lng);
@@ -99,10 +99,20 @@ function disp_detailMap(targetLat, targetLng) {
     var to = L.marker([targetLat, targetLng], {icon: L.ExtraMarkers.icon(options)}).addTo(map);
 
     // 経路探索
+    // L.Routing.control({
+    //     waypoints: [
+    //         from,to
+    //     ],
+    //     outeWhileDragging: false
+    // }).addTo(map);
     L.Routing.control({
         waypoints: [
-            from,to
+            // L.latLng(57.74, 11.94),
+            // L.latLng(57.6792, 11.949)
+            L.latLng(lat, lng),
+            L.latLng(targetLat, targetLng)
         ],
+        routeWhileDragging: false
     }).addTo(map);
 
     // 経路探索文章を非表示
