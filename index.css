@@ -189,3 +189,11 @@ img {zoom:80%;}
         margin: 1; 
         padding: 0;
     }
+
+/* Leaflet検索結果非表示 */
+.leaflet-routing-container.leaflet-bar.leaflet-routing-collapsible.leaflet-control {
+    display: none;
+}
+.leaflet-marker-draggable {
+    display: none;
+}
