@@ -52,6 +52,7 @@ function getNearHospital(lat, lng) {
         var count = 1;
         obj.forEach(function(v) {
             console.log(v.id + v.name);
+            count++;
             $('#near').append('<div class="row justify-content-center"><div class="col font-weight-bold "><a href="hospitaldetail.html?key='+v.id+'">'+count+':'+v.name+'</a></div></div>');
         });
     }).fail(function() {
