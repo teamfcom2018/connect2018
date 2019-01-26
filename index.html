@@ -5,51 +5,57 @@
 <head>
     <title>F-Hospital</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="index.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" href="./css/index.css" type="text/css" />-->
     <link rel="stylesheet" href="./node_modules/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" href="./node_modules/leaflet-extra-markers/dist/css/leaflet.extra-markers.min.css">
-    <link rel="stylesheet" href="./fontawesome.css">
-    <link rel="stylesheet" href="./bootstrap.min.css">
-    <link rel="stylesheet" href="./semantic.min.css">
+    <link rel="stylesheet" href="./css/fontawesome.css">
+    <!-- BootstrapのCSS読み込み -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="./css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="./css/semantic.min.css">
     <script src="./node_modules/leaflet/dist/leaflet.js"></script>
     <script src="./node_modules/leaflet-sprite/dist/leaflet.sprite.js"></script>
     <script src="./node_modules/leaflet-extra-markers/dist/js/leaflet.extra-markers.min.js"></script>
     <!-- <script src="./node_modules/leaflet.markercluster/dist/leaflet.markercluster.js"></script> -->
+    <!-- jQuery読み込み -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- BootstrapのJS読み込み -->
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="js/data.js"></script> -->
+
+
 </head>
 
 <body>
-    <div id="outer">
-        <div id="header">
-            <h1>　F-Hospital　</h1>
-        </div>
-        <div id="main">
-            <div class="content">
-                <br>
-                <h2>1：休日・夜間急病センター</h2>
-                <h2>2：太田西ノ内病院</h2>
-                <div id="map" style="width: 100%; height:400px;"></div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col" style="height:50px; background-color:#004C25;color:#ffffff">
+                <span class="align-middle text-center font-italic font-weight-bold" style="font-size:24px;">F-Hospital</span>
             </div>
         </div>
-        <div id="right">
-            <div class="title">メニュー</div>
-            <div class="side">
-                <li>郡山市病院一覧</li>
-                <li>郡山市交通情報</li>
-                <li>過去1か月事故情報</li>
-            </div>
+        <div class="row justify-content-center">
+            <div class="col font-weight-bold ">1：休日・夜間急病センター</div>
         </div>
-        <!-- <button onclick="pop(1)">テスト</button> -->
-        <div id="footer">
-            <div class="copy">© 2018 Team F-COM</div>
+        <div class="row justify-content-center">
+            <div class="col font-weight-bold ">2：太田西ノ内病院</div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col" id="map" style="width: 50%; height:400px;"></div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col" style="text-align:center; color:#666;font-size:13px;height:110px; ">© 2018
+                Team F-COM</div>
         </div>
     </div>
 </body>
-<!-- <script src="src/data.js"></script> -->
-<script src="src/data.js"></script>
-<script src="src/map.js"></script>
-<script src="src/current_pos.js"></script>
-<script src="src/storage.js"></script>
+<script src="./js/data.js"></script>
+<script src="./js/map.js"></script>
+<script src="./js/current_pos.js"></script>
+<script src="./js/storage.js"></script>
 <script>
     init();
 </script>

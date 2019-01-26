@@ -6,7 +6,7 @@
     <title>病院情報</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./css/index.css" type="text/css" />
+    <!-- <link rel="stylesheet" href="./css/index.css" type="text/css" />-->
     <link rel="stylesheet" href="./node_modules/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" href="./node_modules/leaflet-extra-markers/dist/css/leaflet.extra-markers.min.css">
     <link rel="stylesheet" href="./css/fontawesome.css">
@@ -19,72 +19,16 @@
     <script src="./node_modules/leaflet/dist/leaflet.js"></script>
     <script src="./node_modules/leaflet-sprite/dist/leaflet.sprite.js"></script>
     <script src="./node_modules/leaflet-extra-markers/dist/js/leaflet.extra-markers.min.js"></script>
-    <script src="./node_modules/leaflet-routing-machine/dist/leaflet-routing-machine.min.js"></script>
-    <!-- <script src="./node_modules/leaflet.markercluster/dist/leaflet.markercluster.js"></script> -->
     <!-- jQuery読み込み -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+    <script  src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- BootstrapのJS読み込み -->
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/bootstrap.bundle.min.js"></script>
-    <style type="text/css">
-        /* Leaflet検索結果非表示 */
-        .leaflet-routing-container.leaflet-bar.leaflet-routing-collapsible.leaflet-control {
-            display: none;
-        }
 
-        .leaflet-marker-draggable {
-            display: none;
-        }
-    </style>
 </head>
 
 <body>
-
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col" style="height:50px; background-color:#004C25;color:#ffffff">
-                <span class="align-middle text-center font-italic font-weight-bold" style="font-size:24px;">病院情報</span>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col font-weight-bold ">病院名　</div>
-            <div class="col"><span id="name"></span></div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col font-weight-bold ">住　　所</div>
-            <div class="col"><span id="addr"></span></div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col font-weight-bold ">電話番号</div>
-            <div class="col"><span id="phone"></span></div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col font-weight-bold ">受付曜日</div>
-            <div class="col"><span id="day"></span></div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col font-weight-bold ">受付時間</div>
-            <div class="col"><span id="time"></span></div>
-        </div>
-
-        <div class="row justify-content-center">
-            <div class="col font-weight-bold ">受入可否</div>
-            <div class="col"><span id="status"></span></div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col font-weight-bold ">ホームページ</div>
-            <div class="col"><span id="url"></span></div>
-        </div>
-
-        <div class="row justify-content-center">
-            <div class="col" id="map" style="width: 50%; height:400px;"></div>
-        </div>
-       <div class="row justify-content-center">
-            <div class="col" style="text-align:center; color:#666;font-size:13px;height:110px; ">© 2018
-                Team F-COM</div>
-        </div>
-    </div>
-    <!-- <div id="outer">
+    <div id="outer">
         <div id="header">
             <h1>　病院情報　</h1>
         </div>
@@ -113,7 +57,7 @@
         <div id="footer">
             <div class="copy">© 2018 Team F-COM</div>
         </div>
-    </div> -->
+    </div>
 </body>
 <script src="./js/current_pos.js"></script>
 <script src="./js/detail.js"></script>
