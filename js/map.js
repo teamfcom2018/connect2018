@@ -49,7 +49,7 @@ function getNearHospital(lat, lng) {
         type: 'get'
     }).done(function(data) {
         var obj = JSON.parse(data);
-        var count = 1;
+        var count = 0;
         obj.forEach(function(v) {
             console.log(v.id + v.name);
             count++;
