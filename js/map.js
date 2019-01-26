@@ -38,4 +38,23 @@ window.onload = function () {
 
     // 現在位置にピンを刺す
     L.marker([lat, lng],  {icon: L.spriteIcon('green')}).addTo(map);
+
+    // ajax通信
+    getNearHospital(37.3916806,140.3796366);
+}
+
+function getNearHospital(lat, lng) {
+    var url = "http://udc2018.shimo3.com/srv/nearhospital.php?num=3&lat="+lat+"&lng="+lng;
+    $.ajax(url,{
+        type: 'get'
+    }).done(function(data) {
+        var obj = JSON.parse(data);
+        var count = 1;
+        obj.forEach(function(v) {
+            console.log(v.id + v.name);
+            $('#near').append('<div class="row justify-content-center"><div class="col font-weight-bold "><a href="hospitaldetail.html?key='+v.id+'">'+count+':'+v.name+'</a></div></div>');
+        });
+    }).fail(function() {
+        alert('エラー');
+    });
 }

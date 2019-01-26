@@ -5,7 +5,8 @@
  * ex.) http://udc2018.shimo3.com/srv/nearhospital.php?num=3&lat=37.xxxxxxx&lng=140.xxxxxxx
  */
 header('Content-Type', 'application/json');
-header('Access-Control-Allow-Origin', '*');
+header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Methods: GET, OPTIONS");
 
 // httpメソッドチェック
 if($_SERVER['REQUEST_METHOD'] !== 'GET') {
