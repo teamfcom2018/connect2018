@@ -154,3 +154,9 @@ img {zoom:80%;}
 .leaflet-marker-draggable {
     display: none;
 }
+
+
+.navbar-brand h2 {
+ color: whitesmoke;
+  text-shadow:-2px 0px black; 
+}

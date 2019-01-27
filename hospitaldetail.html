@@ -1,6 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<!-- <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja" style="height: 100%; margin: 0;">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja" style="height: 100%; margin: 0;"> -->
+<!DOCTYPE html>
+<html lang="ja">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
 <head>
     <title>病院情報</title>
@@ -16,6 +21,9 @@
     <link rel="stylesheet" href="./css/bootstrap-reboot.min.css">
     <link rel="stylesheet" href="./css/semantic.min.css">
     <link rel="stylesheet" href="./node_modules/leaflet-routing-machine/dist/leaflet-routing-machine.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pace.min.css">
+
     <script src="./node_modules/leaflet/dist/leaflet.js"></script>
     <script src="./node_modules/leaflet-sprite/dist/leaflet.sprite.js"></script>
     <script src="./node_modules/leaflet-extra-markers/dist/js/leaflet.extra-markers.min.js"></script>
@@ -23,6 +31,7 @@
     <!-- <script src="./node_modules/leaflet.markercluster/dist/leaflet.markercluster.js"></script> -->
     <!-- jQuery読み込み -->
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- BootstrapのJS読み込み -->
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/bootstrap.bundle.min.js"></script>
@@ -38,52 +47,97 @@
     </style>
 </head>
 
-<body>
+<body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
+    <header class="app-header navbar bg-teal">
+        <div class="navbar-brand">
+            <h2>病院情報</h2>
+        </div>
+        <button class="navbar-toggler aside-menu-toggler d-md-down-none" type="button" data-toggle="aside-menu-lg-show">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <button class="navbar-toggler aside-menu-toggler d-lg-none" type="button" data-toggle="aside-menu-show" onclick="goList();">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </header>
 
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col" style="height:50px; background-color:#004C25;color:#ffffff">
-                <span class="align-middle text-center font-italic font-weight-bold" style="font-size:24px;">病院情報</span>
+    <div class="app-body">
+        <div class="sidebar">
+            <nav class="sidebar-nav">
+                <ul class="nav">
+                    <li class="nav-item" style="list-style:none">
+                        <a class="nav-link" href="index.html">
+                            <i class="nav-icon icon-speedometer"></i>一覧へ
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+        </div>
+
+        <main class="main">
+            <div class="container-fluid">
+                <div class="animated fadeIn">
+                    <div class="card-columns cols-2">
+                        <div class="card">
+                            <div class="card-header"><i class="fas fa-info-circle"></i>Information</div>
+                            <div class="card-body">
+                                <div class="chart-wrapper">
+                                    <div class="row justify-content-center">
+                                        <div class="col font-weight-bold ">
+                                            <!-- <i class="fa fa-hospital-o"></i> -->
+                                            病院名　
+                                        </div>
+                                        <div class="col"><span id="name"></span></div>
+                                    </div>
+                                    <div class="row justify-content-center">
+                                        <div class="col font-weight-bold ">住　　所</div>
+                                        <div class="col"><span id="addr"></span></div>
+                                    </div>
+                                    <div class="row justify-content-center">
+                                        <div class="col font-weight-bold ">
+                                            <!-- <i class="fa fa-phone-square"></i> -->
+                                            電話番号
+                                        </div>
+                                        <div class="col"><span id="phone"></span></div>
+                                    </div>
+                                    <div class="row justify-content-center">
+                                        <div class="col font-weight-bold ">受付曜日</div>
+                                        <div class="col"><span id="day"></span></div>
+                                    </div>
+                                    <div class="row justify-content-center">
+                                        <div class="col font-weight-bold ">受付時間</div>
+                                        <div class="col"><span id="time"></span></div>
+                                    </div>
+                                    <div class="row justify-content-center">
+                                        <div class="col font-weight-bold ">受入可否</div>
+                                        <div class="col"><span id="status"></span></div>
+                                    </div>
+                                    <div class="row justify-content-center">
+                                        <div class="col font-weight-bold ">ホームページ</div>
+                                        <div class="col"><span id="url"></span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header"><i class="fa fa-map-signs" aria-hidden="true"></i>経路情報</div>
+                            <div class="card-body">
+                                <div class="chart-wrapper">
+                                    <div class="col" id="map" style="height:71vh;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col font-weight-bold ">病院名　</div>
-            <div class="col"><span id="name"></span></div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col font-weight-bold ">住　　所</div>
-            <div class="col"><span id="addr"></span></div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col font-weight-bold ">電話番号</div>
-            <div class="col"><span id="phone"></span></div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col font-weight-bold ">受付曜日</div>
-            <div class="col"><span id="day"></span></div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col font-weight-bold ">受付時間</div>
-            <div class="col"><span id="time"></span></div>
-        </div>
-
-        <div class="row justify-content-center">
-            <div class="col font-weight-bold ">受入可否</div>
-            <div class="col"><span id="status"></span></div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col font-weight-bold ">ホームページ</div>
-            <div class="col"><span id="url"></span></div>
-        </div>
-
-        <div class="row justify-content-center">
-            <div class="col" id="map" style="width: 50%; height:400px;"></div>
-        </div>
-       <div class="row justify-content-center">
-            <div class="col" style="text-align:center; color:#666;font-size:13px;height:110px; ">© 2018
-                Team F-COM</div>
-        </div>
+        </main>
     </div>
+    <footer class="app-footer">
+        <div class="ml-auto">
+            <span>&copy; 2018 Team F-COM</span>
+        </div>
+    </footer>
+
     <!-- <div id="outer">
         <div id="header">
             <h1>　病院情報　</h1>

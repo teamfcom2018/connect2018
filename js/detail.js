@@ -1,4 +1,4 @@
-window.onload = function() {
+window.onload = function () {
     // test
     // alert(getValue());
     var key = getValue();
@@ -15,7 +15,7 @@ window.onload = function() {
     var url = '';
     var lat = 0;
     var lng = 0;
-    if(json && json.properties) {
+    if (json && json.properties) {
 
         name = json.properties.popupContent;
         addr = json.properties.address;
@@ -23,7 +23,7 @@ window.onload = function() {
         day = json.properties.day;
         time = json.properties.time;
         status = json.properties.status;
-        url = json.properties.popupLink;    
+        url = json.properties.popupLink;
         lat = json.geometry.coordinates[1];
         lng = json.geometry.coordinates[0];
     } else {
@@ -37,7 +37,7 @@ window.onload = function() {
     document.getElementById('day').innerHTML = day;
     document.getElementById('time').innerHTML = time;
     document.getElementById('status').innerHTML = status;
-    document.getElementById('url').innerHTML = "<a href='"+ url +"' target='_blank'>"+url+"</a>";
+    document.getElementById('url').innerHTML = "<a href='" + url + "' target='_blank'>" + url + "</a>";
 
     // マップ表示＆経路表示
     disp_detailMap(lat, lng);
@@ -47,10 +47,10 @@ function getValue() {
     var val = "";
     var url = window.location.search;
 
-        //?を取り除くため、1から始める。複数のクエリ文字列に対応するため、&で区切る
-    var hash  = url.slice(1).split('&');    
-    
-    if(hash) {
+    //?を取り除くため、1から始める。複数のクエリ文字列に対応するため、&で区切る
+    var hash = url.slice(1).split('&');
+
+    if (hash) {
         val = hash[0].split('=')[1];
     }
 
@@ -86,17 +86,17 @@ function disp_detailMap(targetLat, targetLng) {
     // ).addTo(map);
 
     // 現在位置にピンを刺す
-    var from = L.marker([lat, lng],  {icon: L.spriteIcon('green')}).addTo(map);
+    var from = L.marker([lat, lng], { icon: L.spriteIcon('green') }).addTo(map);
 
     // ターゲットの病院にピンを刺す
     // Font Awesome circle
     options = {
         prefix: 'fa'
-        ,icon: 'fa-hospital'
-        ,shape: 'circle'
-        ,markerColor: 'blue'
+        , icon: 'fa-hospital'
+        , shape: 'circle'
+        , markerColor: 'blue'
     };
-    var to = L.marker([targetLat, targetLng], {icon: L.ExtraMarkers.icon(options)}).addTo(map);
+    var to = L.marker([targetLat, targetLng], { icon: L.ExtraMarkers.icon(options) }).addTo(map);
 
     // 経路探索
     // L.Routing.control({
@@ -116,4 +116,8 @@ function disp_detailMap(targetLat, targetLng) {
     }).addTo(map);
 
     // 経路探索文章を非表示
+}
+
+function goList() {
+    window.location.href = "/";
 }
